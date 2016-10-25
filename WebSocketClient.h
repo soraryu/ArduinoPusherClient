@@ -2,17 +2,17 @@
  WebsocketClient, a websocket client for Arduino
  Copyright 2011 Kevin Rohling
  http://kevinrohling.com
- 
+
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  copies of the Software, and to permit persons to whom the Software is
  furnished to do so, subject to the following conditions:
- 
+
  The above copyright notice and this permission notice shall be included in
  all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,7 +28,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <WString.h>
-#include <Ethernet.h>
+#include <ESP8266WiFi.h>
 #include "Arduino.h"
 
 //Uncomment this to use WIFLY Client
@@ -40,13 +40,14 @@ class WebSocketClient {
 		bool connect(char hostname[], char path[] = "/", int port = 80);
         bool connected();
         void disconnect();
+				void setClient(ESP8266WiFi client);
 		void monitor();
 		void setDataArrivedDelegate(DataArrivedDelegate dataArrivedDelegate);
 		void send(String data);
 	private:
         String getStringTableItem(int index);
         void sendHandshake(char hostname[], char path[]);
-        EthernetClient _client;
+        ESP8266WiFi _client;
         DataArrivedDelegate _dataArrivedDelegate;
         bool readHandshake();
         String readLine();
