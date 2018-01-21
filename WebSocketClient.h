@@ -40,7 +40,7 @@ class WebSocketClient {
 		bool connect(char hostname[], char path[] = "/", int port = 80);
         bool connected();
         void disconnect();
-				void setClient(ESP8266WiFi client);
+		void setClient(ESP8266WiFi client);
 		void monitor();
 		void setDataArrivedDelegate(DataArrivedDelegate dataArrivedDelegate);
 		void send(String data);
