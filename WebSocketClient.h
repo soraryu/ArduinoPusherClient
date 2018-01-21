@@ -28,7 +28,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <WString.h>
-#include <ESP8266WiFi.h>
+#include <SerialESP8266wifi.h>
 #include "Arduino.h"
 
 //Uncomment this to use WIFLY Client
@@ -40,14 +40,14 @@ class WebSocketClient {
 		bool connect(char hostname[], char path[] = "/", int port = 80);
         bool connected();
         void disconnect();
-		void setClient(ESP8266WiFi client);
+		void setClient(SerialESP8266wifi client);
 		void monitor();
 		void setDataArrivedDelegate(DataArrivedDelegate dataArrivedDelegate);
 		void send(String data);
 	private:
         String getStringTableItem(int index);
         void sendHandshake(char hostname[], char path[]);
-        ESP8266WiFi _client;
+        SerialESP8266wifi _client;
         DataArrivedDelegate _dataArrivedDelegate;
         bool readHandshake();
         String readLine();

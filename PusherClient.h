@@ -29,7 +29,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <WString.h>
-#include <ESP8266WiFi.h>
+#include <SerialESP8266wifi.h>
 #include "Arduino.h"
 #include <WebSocketClient.h>
 
@@ -44,7 +44,7 @@ class PusherClient {
         bool connect(String appId);
         bool connected();
         void disconnect();
-        void setClient(ESP8266WiFi client);
+        void setClient(SerialESP8266wifi client);
         void monitor();
         void bindAll(EventDelegate delegate);
         void bind(String eventName, EventDelegate delegate);

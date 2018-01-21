@@ -26,7 +26,7 @@
 #include <WString.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ESP8266WiFi.h>
+#include <SerialESP8266wifi.h>
 
 const char stringVar[] PROGMEM = "{0}";
 const char clientHandshakeLine1[] PROGMEM = "GET {0} HTTP/1.1";
@@ -53,7 +53,7 @@ String WebSocketClient::getStringTableItem(int index) {
     return String(buffer);
 }
 
-void WebSocketClient::setClient(ESP8266WiFi client) {
+void WebSocketClient::setClient(SerialESP8266wifi client) {
     _client = client;
 }
 

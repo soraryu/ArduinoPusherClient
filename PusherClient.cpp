@@ -26,7 +26,7 @@
 #include <HashMap/HashMap.h>
 #include <WString.h>
 #include <string.h>
-#include <ESP8266WiFi.h>
+#include <SerialESP8266wifi.h>
 #include <stdlib.h>
 
 const byte HASH_SIZE = 10;
